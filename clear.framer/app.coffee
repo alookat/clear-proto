@@ -8,7 +8,6 @@ listStyle =
 # colours
 red = new Color(r: 217, g: 0, b: 21)
 darkRed = new Color(red).darken(20)
-
 yellow = new Color(r: 255, g: 175, b: 30)
 top = new Color(r: 40, g: 40, b: 40, a: 0.5)
 border = new Color(r: 0, g: 0, b: 0, a: 0.1)
@@ -27,7 +26,13 @@ listScroll = new ScrollComponent
 	size: Screen.size
 	scrollHorizontal: false
 	perspective: 1000
-# 	perspectiveOriginY: 1
+
+listScroll.pinchable.enabled = true
+listScroll.pinchable.scale = false
+listScroll.pinchable.rotate = false
+# listPinch = new Layer
+# 	size: Screen.size
+# listPinch.pinchable.enabled = true
 
 # let's "tag" every list item as "list"
 # so we can target them collectively later
@@ -112,4 +117,17 @@ listScroll.onTouchEnd ->
 # 		listItemNew.originY = 0
 # 		listItemNew.y = 100
 # 		print listItemNew.rotationX
+
+
+
+listScroll.onPinch (event) ->
+	print event.touchDistance
+	distance = event.touchDistance
+	
+# 	centerPoint = event.touchCenter.y
+# 	listScroll.midY = centerPoint
+				
+# 		print event.touchDistance / listItem.index
+# 		listItem.y = event.touchDistance / listItem.index
+
 
