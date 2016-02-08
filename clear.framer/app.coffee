@@ -67,7 +67,7 @@ listName = new Layer
 listName.style = 
 	"font": "500 27px/127px Helvetica Neue"
 	"text-align": "center"
-	"-webkit-backdrop-filter": "blur(15px)"
+	"-webkit-backdrop-filter": "blur(30px)"
 listNameBorderBottom = new Layer
 	width: listName.width
 	parent: listName
@@ -110,13 +110,14 @@ listScroll.onMove ->
 		addThis = true
 	else 
 		listItemNew.html = "Pull to Create Item"
-		
+	print listItemNew.rotationX
 listScroll.onTouchEnd ->
-# 	if addThis is true
-# 		listItemNew.rotationX = 0
+	if addThis is true
+		# why isn't this working (rotation goes back to 60)
+		listItemNew.rotationX = 0
 # 		listItemNew.originY = 0
 # 		listItemNew.y = 100
-# 		print listItemNew.rotationX
+		print listItemNew.rotationX
 
 
 
